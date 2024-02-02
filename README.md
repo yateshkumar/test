@@ -36,7 +36,7 @@ To run the microservice locally, follow these steps:
 
 ### Configure Properties
 
-Configure the necessary properties in **src/main/resources/application.yml** or use environment variables. 
+Configure the necessary properties in ``` **src/main/resources/application.yml** ``` or use environment variables. 
 
 Example application.yml:
 ```
