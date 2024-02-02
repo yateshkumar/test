@@ -36,7 +36,27 @@ To run the microservice locally, follow these steps:
 
 ### Configure Properties
 
-Configure the necessary properties in src/main/resources/application.yml or use environment variables. 
+Configure the necessary properties in **src/main/resources/application.yml** or use environment variables. 
+
+Example application.yml:
+```
+product-api:
+  base-url: https://equalexperts.github.io/backend-take-home-test-data/
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:shopping-cart-ms_DB
+    driverClassName: org.h2.Driver
+    username: shopping-cart
+    password: shopping-cart
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+```
 
 ### Build and Run
 
@@ -111,16 +131,14 @@ API endpoints and their functionalities.
 - Lightweight, embedded, and portable.
 - Simple configuration for rapid setup.
 - Suitable for local testing and demos.
-- Considerations for Actual Deployment:
 
 #### Limitations of H2:
 - Limited scalability in distributed setups.
 - Data not persisted after application shutdown.
 - Potential concurrency challenges with substantial data.
-- Recommended Choice for Production: Redis
+- Recommended Choice for Production: **Redis**
 
-####Advantages of Redis:
-- High-performance in-memory data store.
+#### Advantages of Redis:
 - Horizontal scalability for handling increased data and traffic.
 - Persistence options for data durability.
 - Versatility in supporting various data structures.
