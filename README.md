@@ -73,7 +73,6 @@ The microservice will be accessible at http://localhost:8080.
 
 #### Build and Run with Docker
 ```
-docker build -t shoppingcart-ms .
 docker-compose up
 ```
 The microservice will be accessible at http://localhost:8080.
