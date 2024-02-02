@@ -9,6 +9,8 @@ This microservice provides functionality for managing shopping carts.
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [API Endpoints](#api-endpoints)
+- [Database Choice](#database-choice)
+
 
 ## Introduction
 
@@ -26,6 +28,7 @@ The shopping cart microservice allows users to add products to their shopping ca
 - Spring Boot (2.7.18)
 - Maven (3.9.6)
 - JUnit
+- H2 In-Memory Database
 
 ## Getting Started
 
@@ -97,3 +100,32 @@ API endpoints and their functionalities.
 
 - `POST /api/shopping-cart/add-product`: Add a product to the shopping cart.
 - `GET /api/shopping-cart/calculate-state/{userId}`: Calculate the state of the shopping cart.
+
+
+## Database Choice
+
+### H2 In-Memory Database:
+
+#### Advantages:
+- Quick development and testing.
+- Lightweight, embedded, and portable.
+- Simple configuration for rapid setup.
+- Suitable for local testing and demos.
+- Considerations for Actual Deployment:
+
+#### Limitations of H2:
+- Limited scalability in distributed setups.
+- Data not persisted after application shutdown.
+- Potential concurrency challenges with substantial data.
+- Recommended Choice for Production: Redis
+
+####Advantages of Redis:
+- High-performance in-memory data store.
+- Horizontal scalability for handling increased data and traffic.
+- Persistence options for data durability.
+- Versatility in supporting various data structures.
+- Atomic operations for data integrity.
+- Pub/Sub mechanism for real-time communication.
+- Active community support.
+
+In summary, H2 serves well for quick development and local testing due to its simplicity and portability. However, for a robust production solution with scalability and persistence requirements, Redis stands out as the recommended choice. The selection depends on the specific needs and scale of the application.
