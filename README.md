@@ -73,6 +73,7 @@ The microservice will be accessible at http://localhost:8080.
 
 #### Build and Run with Docker
 ```
+mvn clean install
 docker-compose up
 ```
 The microservice will be accessible at http://localhost:8080.
