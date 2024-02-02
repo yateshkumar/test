@@ -120,6 +120,8 @@ API endpoints and their functionalities.
 
 1. `POST /api/shopping-cart/add-product`
 
+Adds a product to the shopping cart.
+
 ### Request Body
 Expects a JSON payload with details of the product to be added.
 
@@ -131,9 +133,9 @@ Expects a JSON payload with details of the product to be added.
   "quantity": 2
 }
 ```
-**userAccountId** : Existing account id of the logged-in user.
-**productName** : Name of the product to be added in the shopping cart.
-**quantity** : Quantity of the product to be added in the shopping cart.
+- **userAccountId** : Existing account id of the logged-in user.
+- **productName** : Name of the product to be added in the shopping cart.
+- **quantity** : Quantity of the product to be added in the shopping cart.
 
 #### Success Response:
 eturns the updated shopping cart.
@@ -152,9 +154,6 @@ eturns the updated shopping cart.
   ]
 }
 ```
-
-2. `GET /api/shopping-cart/calculate-state/{userAccountId}`: Calculate the state of the shopping cart.
-
 ### Error Response:
 Possible error responses include validation failures, product not found, or internal server errors.
 
@@ -168,6 +167,42 @@ Possible error responses include validation failures, product not found, or inte
 }
 ```
 
+2. `GET /api/shopping-cart/calculate-state/{userAccountId}`: Calculate the state of the shopping cart.
+
+Calculates the state of the shopping cart for a specific user.
+
+### Path Parameter:
+- **{userAccountId}** : Existing account id of the logged-in user.
+
+### Example Request:
+```
+/api/shopping-cart/calculate-state/123
+```
+
+### Success Response:
+Returns the calculated cart totals.
+
+#### Example Success Response:
+```
+{
+  "subtotal": 40.0,
+  "tax": 5.0,
+  "total": 45.0
+}
+```
+
+### Error Response:
+Possible error responses include shopping cart not found or internal server errors.
+
+#### Example Error Response:
+```
+{
+  "timestamp": "2024-01-13T12:34:56",
+  "status": 404,
+  "error": "Not Found",
+  "message": "Shopping cart not found for user ID: 123."
+}
+```
 
 ## Database Choice
 
