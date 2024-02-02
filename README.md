@@ -27,7 +27,6 @@ The shopping cart microservice allows users to add products to their shopping ca
 - Spring Boot
 - Maven
 - JUnit
-- ...
 
 ## Getting Started
 
@@ -41,23 +40,26 @@ Configure the necessary properties in src/main/resources/application.yml or use 
 
 Open a terminal and navigate to the project's root directory.
 
+```
 mvn clean install
 java -jar target/shoppingcart-ms-1.0.0.jar
+```
 
 The microservice will be accessible at http://localhost:8080.
 
 ### Docker Approach
 
 #### Build and Run with Docker
-
+```
 docker build -t shoppingcart-ms .
 docker-compose up
-
+```
 The microservice will be accessible at http://localhost:8080.
 
 #### Docker Configuration
 
 Dockerfile
+```
 # Use an official OpenJDK runtime as a parent image
 FROM openjdk:8-jdk-alpine
 
@@ -75,10 +77,10 @@ EXPOSE 8080
 
 # Define application arguments
 CMD ["java", "-jar", "/home/app/app.jar"]
-
+```
 
 docker-compose.yml
-
+```
 version: '3'
 
 services:
@@ -88,10 +90,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-
-
-mvn clean install
-java -jar target/shoppingcart-ms-1.0.0.jar
+```
 
 ## API Endpoints
 
