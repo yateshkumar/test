@@ -118,8 +118,55 @@ services:
 
 API endpoints and their functionalities.
 
-- `POST /api/shopping-cart/add-product`: Add a product to the shopping cart.
-- `GET /api/shopping-cart/calculate-state/{userId}`: Calculate the state of the shopping cart.
+1. `POST /api/shopping-cart/add-product`
+
+### Request Body
+Expects a JSON payload with details of the product to be added.
+
+#### Example Request:
+```
+{
+  "userAccountId": 123,
+  "productName": "SampleProduct",
+  "quantity": 2
+}
+```
+**userAccountId** : Existing account id of the logged-in user.
+**productName** : Name of the product to be added in the shopping cart.
+**quantity** : Quantity of the product to be added in the shopping cart.
+
+#### Success Response:
+eturns the updated shopping cart.
+
+#### Example Success Response:
+```
+{
+  "userAccountId": 123,
+  "cartItems": [
+    {
+      "id": 1,
+      "name": "SampleProduct",
+      "price": 20.0,
+      "quantity": 2
+    }
+  ]
+}
+```
+
+2. `GET /api/shopping-cart/calculate-state/{userAccountId}`: Calculate the state of the shopping cart.
+
+### Error Response:
+Possible error responses include validation failures, product not found, or internal server errors.
+
+#### Example Error Response:
+```
+{
+  "timestamp": "2024-01-13T12:34:56",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Invalid quantity provided."
+}
+```
 
 
 ## Database Choice
