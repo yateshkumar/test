@@ -63,7 +63,7 @@ spring:
 Open a terminal and navigate to the project's root directory.
 
 ```
-mvn clean install
+mvn clean package
 java -jar target/shoppingcart-ms-1.0.0.jar
 ```
 
@@ -73,7 +73,7 @@ The microservice will be accessible at http://localhost:8080.
 
 #### Build and Run with Docker
 ```
-mvn clean install
+mvn clean package
 docker-compose up
 ```
 The microservice will be accessible at http://localhost:8080.
