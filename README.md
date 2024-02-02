@@ -167,7 +167,7 @@ Possible error responses include validation failures, product not found, or inte
 }
 ```
 
-2. `GET /api/shopping-cart/calculate-state/{userAccountId}`: Calculate the state of the shopping cart.
+2. `GET /api/shopping-cart/calculate-state/{userAccountId}`
 
 Calculates the state of the shopping cart for a specific user.
 
