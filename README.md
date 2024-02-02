@@ -28,7 +28,7 @@ The shopping cart microservice allows users to add products to their shopping ca
 - Spring Boot (2.7.18)
 - Maven (3.9.6)
 - JUnit
-- H2 In-Memory Database
+- H2 In-Memory Database (Recommended : **Redis**)
 
 ## Getting Started
 
