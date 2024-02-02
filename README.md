@@ -19,13 +19,12 @@ The shopping cart microservice allows users to add products to their shopping ca
 - Add products to the shopping cart.
 - Calculate the state of the shopping cart (subtotal, tax, total).
 - Handle errors and exceptions gracefully.
-- ...
 
 ## Technologies Used
 
-- Java
-- Spring Boot
-- Maven
+- Java (1.8)
+- Spring Boot (2.7.18)
+- Maven (3.9.6)
 - JUnit
 
 ## Getting Started
