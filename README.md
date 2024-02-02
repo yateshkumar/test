@@ -138,7 +138,7 @@ Expects a JSON payload with details of the product to be added.
 - **quantity** : Quantity of the product to be added in the shopping cart.
 
 #### Success Response:
-eturns the updated shopping cart.
+Returns the updated shopping cart.
 
 #### Example Success Response:
 ```
