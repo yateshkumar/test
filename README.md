@@ -132,6 +132,7 @@ Expects a JSON payload with details of the product to be added.
   "quantity": 2
 }
 ```
+#### Mandatory Parameters:
 - **userAccountId** : Existing account id of the logged-in user.
 - **productName** : Name of the product to be added in the shopping cart.
 - **quantity** : Quantity of the product to be added in the shopping cart.
@@ -142,15 +143,24 @@ eturns the updated shopping cart.
 #### Example Success Response:
 ```
 {
-  "userAccountId": 123,
-  "cartItems": [
-    {
-      "id": 1,
-      "name": "SampleProduct",
-      "price": 20.0,
-      "quantity": 2
+    "userAccountId": 2,
+    "cartItems": [
+        {
+            "name": "Corn Flakes",
+            "price": 2.52,
+            "quantity": 2
+        },
+        {
+            "name": "Weetabix",
+            "price": 9.98,
+            "quantity": 1
+        }
+    ],
+    "cartTotals": {
+        "subtotal": 15.02,
+        "tax": 1.88,
+        "total": 16.90
     }
-  ]
 }
 ```
 ### Error Response:
@@ -159,23 +169,32 @@ Possible error responses include validation failures, product not found, or inte
 #### Example Error Response:
 ```
 {
-  "timestamp": "2024-01-13T12:34:56",
-  "status": 400,
-  "error": "Bad Request",
-  "message": "Invalid quantity provided."
+    "timestamp": "2024-02-03 02:31:10",
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Invalid value for parameter 'quantity' : '0'"
 }
 ```
 
-2. `GET /api/shopping-cart/calculate-state/{userAccountId}`
+```
+{
+    "timestamp": "2024-02-03 02:31:37",
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Provided quantity: '21' is greater than maximum allowed : '20'"
+}
+```
 
-Calculates the state of the shopping cart for a specific user.
+2. `GET /api/shopping-cart/{userAccountId}`
+
+Returns the current state of the shopping cart for a specific user that includes all the cart items along with subtotal, tax and total.
 
 ### Path Parameter:
 - **{userAccountId}** : Existing account id of the logged-in user.
 
 ### Example Request:
 ```
-/api/shopping-cart/calculate-state/123
+/api/shopping-cart/123
 ```
 
 ### Success Response:
@@ -184,9 +203,24 @@ Returns the calculated cart totals.
 #### Example Success Response:
 ```
 {
-  "subtotal": 40.0,
-  "tax": 5.0,
-  "total": 45.0
+    "userAccountId": 2,
+    "cartItems": [
+        {
+            "name": "Corn Flakes",
+            "price": 2.52,
+            "quantity": 2
+        },
+        {
+            "name": "Weetabix",
+            "price": 9.98,
+            "quantity": 1
+        }
+    ],
+    "cartTotals": {
+        "subtotal": 15.02,
+        "tax": 1.88,
+        "total": 16.90
+    }
 }
 ```
 
@@ -196,10 +230,10 @@ Possible error responses include shopping cart not found or internal server erro
 #### Example Error Response:
 ```
 {
-  "timestamp": "2024-01-13T12:34:56",
-  "status": 404,
-  "error": "Not Found",
-  "message": "Shopping cart not found for user ID: 123."
+    "timestamp": "2024-02-03 02:30:40",
+    "status": 404,
+    "error": "Not Found",
+    "message": "Shopping cart is empty."
 }
 ```
 
