@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  shoppingcart:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: shopping-cart-ms
+    container_name: shopping-cart-ms
+    ports:
+      - "8080:8080"

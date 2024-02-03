@@ -1,0 +1,16 @@
+product-api:
+  base-url: https://equalexperts.github.io/backend-take-home-test-data/
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:shopping-cart-ms_DB
+    driverClassName: org.h2.Driver
+    username: shopping-cart
+    password: shopping-cart
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
